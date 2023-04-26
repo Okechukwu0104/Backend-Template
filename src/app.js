@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const {handler} = require("./errors");
+const { handler } = require("./errors");
 
 //let us call some inbuilt
 app.use(
