@@ -10,6 +10,7 @@ const mongoOptions = {
 module.exports = async (MONGO_URL) => {
   try {
     const tested = await mongoose.connect(MONGO_URL, mongoOptions);
+    mongoose.createConnection()
     if (tested) {
       console.log("DB connected successfully");
     }

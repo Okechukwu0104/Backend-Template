@@ -1,8 +1,16 @@
 const express = require("express");
+const{handler} = require('./errors');
 const app = express();
-const { handler } = require("./errors");
+const router = require("./routes/user.route");
 
-//let us call some inbuilt
+//let us call some inbuilt express wares
+
+app.use(
+  express.json({
+    limit: "100mb",
+    extended: true,
+  })
+)
 app.use(
   express.urlencoded({
     limit: "100mb",
@@ -17,5 +25,6 @@ app.use((req, res, next) => {
 
 //error handlers
 app.use(handler);
+app.use("/api", router)
 
 module.exports = app;
